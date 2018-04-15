@@ -11,7 +11,7 @@
 		235327852083DB5A00A46C6A /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 235327842083DB5A00A46C6A /* Roboto-Light.ttf */; };
 		235327872083DB6600A46C6A /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 235327862083DB6600A46C6A /* Roboto-Medium.ttf */; };
 		2353278A2083DB9F00A46C6A /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 235327892083DB9F00A46C6A /* Roboto-Bold.ttf */; };
-		2353278C2083DD7000A46C6A /* DocumentCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353278B2083DD7000A46C6A /* DocumentCellTableViewCell.swift */; };
+		2353278C2083DD7000A46C6A /* DocumentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353278B2083DD7000A46C6A /* DocumentTableViewCell.swift */; };
 		23681ADF2082727A00B8BB59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23681ADE2082727A00B8BB59 /* AppDelegate.swift */; };
 		23681AE12082727A00B8BB59 /* DocumentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23681AE02082727A00B8BB59 /* DocumentListVC.swift */; };
 		23681AE42082727A00B8BB59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23681AE22082727A00B8BB59 /* Main.storyboard */; };
@@ -45,7 +45,7 @@
 		235327842083DB5A00A46C6A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		235327862083DB6600A46C6A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		235327892083DB9F00A46C6A /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Bold.ttf"; path = "../../../../../../Downloads/Roboto-2/Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		2353278B2083DD7000A46C6A /* DocumentCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCellTableViewCell.swift; sourceTree = "<group>"; };
+		2353278B2083DD7000A46C6A /* DocumentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTableViewCell.swift; sourceTree = "<group>"; };
 		23681ADB2082727A00B8BB59 /* DocumentViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DocumentViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23681ADE2082727A00B8BB59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23681AE02082727A00B8BB59 /* DocumentListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentListVC.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				23681B0E2083B7B100B8BB59 /* Networking.swift */,
 				23681B0C208274ED00B8BB59 /* Document.swift */,
 				23681AE22082727A00B8BB59 /* Main.storyboard */,
-				2353278B2083DD7000A46C6A /* DocumentCellTableViewCell.swift */,
+				2353278B2083DD7000A46C6A /* DocumentTableViewCell.swift */,
 				23681AE52082727B00B8BB59 /* Assets.xcassets */,
 				2353277F2083C94000A46C6A /* Fonts */,
 				23681AE72082727B00B8BB59 /* LaunchScreen.storyboard */,
@@ -290,7 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23681AE12082727A00B8BB59 /* DocumentListVC.swift in Sources */,
-				2353278C2083DD7000A46C6A /* DocumentCellTableViewCell.swift in Sources */,
+				2353278C2083DD7000A46C6A /* DocumentTableViewCell.swift in Sources */,
 				23681ADF2082727A00B8BB59 /* AppDelegate.swift in Sources */,
 				23681B0D208274ED00B8BB59 /* Document.swift in Sources */,
 				23681B0F2083B7B100B8BB59 /* Networking.swift in Sources */,

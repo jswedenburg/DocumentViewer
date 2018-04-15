@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gMV-Cg-XE3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -16,12 +17,12 @@
         <array key="Roboto-Light.ttf">
             <string>Roboto-Light</string>
         </array>
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
         </array>
     </customFonts>
     <scenes>
-        <!--Document ListVC-->
+        <!--Documents-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="DocumentListVC" customModule="DocumentViewer" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,49 +30,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YSW-cG-V3y">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YSW-cG-V3y">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="86" id="fOz-GW-jSM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="documentCell" rowHeight="86" id="fOz-GW-jSM" customClass="DocumentTableViewCell" customModule="DocumentViewer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fOz-GW-jSM" id="j7J-RB-AFj">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="85.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vg-jS-FMl">
-                                                    <rect key="frame" x="88.5" y="21" width="44" height="21.5"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="3Vg-jS-FMl">
+                                                    <rect key="frame" x="81.5" y="15.5" width="54" height="26"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="22"/>
                                                     <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25490196078431371" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYr-IF-4F2">
-                                                    <rect key="frame" x="88.5" y="48" width="38" height="19"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="gYr-IF-4F2">
+                                                    <rect key="frame" x="81.5" y="43.5" width="42.5" height="21.5"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                                     <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDW-5d-fMt">
-                                                    <rect key="frame" x="15" y="8.5" width="68.5" height="68.5"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDW-5d-fMt">
+                                                    <rect key="frame" x="15" y="17.5" width="51.5" height="51.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="jDW-5d-fMt" secondAttribute="height" multiplier="1:1" id="PHl-2l-K8k"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="3Vg-jS-FMl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="j7J-RB-AFj" secondAttribute="topMargin" constant="2" id="0Id-zc-PPa"/>
                                                 <constraint firstItem="jDW-5d-fMt" firstAttribute="leading" secondItem="j7J-RB-AFj" secondAttribute="leadingMargin" id="2KO-cj-Rp0"/>
+                                                <constraint firstItem="jDW-5d-fMt" firstAttribute="height" secondItem="j7J-RB-AFj" secondAttribute="height" multiplier="0.6" id="HGV-1m-L5c"/>
+                                                <constraint firstItem="jDW-5d-fMt" firstAttribute="centerY" secondItem="3Vg-jS-FMl" secondAttribute="bottom" constant="2" id="HZ6-s6-sJd"/>
                                                 <constraint firstItem="jDW-5d-fMt" firstAttribute="centerY" secondItem="j7J-RB-AFj" secondAttribute="centerY" id="IiJ-wX-bK1"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="gYr-IF-4F2" secondAttribute="trailing" constant="10" id="JEm-gR-VM9"/>
-                                                <constraint firstItem="gYr-IF-4F2" firstAttribute="top" secondItem="3Vg-jS-FMl" secondAttribute="bottom" constant="5" id="JL4-de-KUi"/>
-                                                <constraint firstItem="3Vg-jS-FMl" firstAttribute="leading" secondItem="jDW-5d-fMt" secondAttribute="trailing" constant="5" id="Ygj-2F-TbB"/>
+                                                <constraint firstItem="3Vg-jS-FMl" firstAttribute="leading" secondItem="jDW-5d-fMt" secondAttribute="trailing" constant="15" id="Ygj-2F-TbB"/>
                                                 <constraint firstItem="gYr-IF-4F2" firstAttribute="leading" secondItem="3Vg-jS-FMl" secondAttribute="leading" id="bec-bV-O4X"/>
-                                                <constraint firstItem="3Vg-jS-FMl" firstAttribute="top" secondItem="j7J-RB-AFj" secondAttribute="topMargin" constant="10" id="fu3-g0-o9u"/>
-                                                <constraint firstItem="jDW-5d-fMt" firstAttribute="height" secondItem="j7J-RB-AFj" secondAttribute="height" multiplier="0.8" id="nnI-JM-s5T"/>
+                                                <constraint firstItem="gYr-IF-4F2" firstAttribute="top" secondItem="3Vg-jS-FMl" secondAttribute="bottom" constant="2" id="deH-e2-MiP"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="gYr-IF-4F2" secondAttribute="bottom" constant="5" id="mcj-q4-wRT"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="3Vg-jS-FMl" secondAttribute="trailing" constant="10" id="wWZ-as-8oK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgPreview" destination="jDW-5d-fMt" id="SUS-Q4-cGl"/>
+                                            <outlet property="lblFileSize" destination="gYr-IF-4F2" id="27r-tE-cCu"/>
+                                            <outlet property="lblName" destination="3Vg-jS-FMl" id="3BJ-Tt-28j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -85,8 +93,30 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Documents" id="OUE-m2-UxN"/>
+                    <connections>
+                        <outlet property="docTableView" destination="YSW-cG-V3y" id="fMY-Jw-NAi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="33.733133433283363"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p4N-Ls-iST">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gMV-Cg-XE3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wSJ-AI-1QV">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rZt-Sr-fCN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dXx-LE-aAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
         </scene>
