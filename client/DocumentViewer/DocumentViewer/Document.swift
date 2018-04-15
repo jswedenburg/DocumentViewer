@@ -9,13 +9,7 @@
 import Foundation
 import UIKit
 
-enum DocumentType {
-    
-}
 
-
-
-typealias DocClosure = (Error?, [Document]?) -> Void
 
 
 
@@ -23,11 +17,18 @@ struct DocumentList:Decodable {
     let documents:[Document]
 }
 
+
+enum DocumentType: String, Decodable {
+    case pdf
+    case image
+}
+typealias DocClosure = (Error?, [Document]?) -> Void
+
 struct Document: Decodable {
     
     let id:String
     let name:String
-    let type:String
+    let type:DocumentType
     let size: String
     let url:String
     
