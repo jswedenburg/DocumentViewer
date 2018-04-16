@@ -129,17 +129,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6JN-Bs-Ums">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="u0d-WK-vMP">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="u0d-WK-vMP" firstAttribute="centerY" secondItem="KKl-rV-BlJ" secondAttribute="centerY" id="F0J-KM-7CM"/>
                             <constraint firstItem="sZ9-Wb-g9n" firstAttribute="trailing" secondItem="6JN-Bs-Ums" secondAttribute="trailing" id="Qea-8U-d8J"/>
                             <constraint firstItem="6JN-Bs-Ums" firstAttribute="top" secondItem="sZ9-Wb-g9n" secondAttribute="top" id="QfX-Le-2Po"/>
+                            <constraint firstItem="u0d-WK-vMP" firstAttribute="centerX" secondItem="KKl-rV-BlJ" secondAttribute="centerX" id="XDT-Bx-i8u"/>
                             <constraint firstItem="sZ9-Wb-g9n" firstAttribute="bottom" secondItem="6JN-Bs-Ums" secondAttribute="bottom" id="XWB-rD-zhz"/>
                             <constraint firstItem="6JN-Bs-Ums" firstAttribute="leading" secondItem="sZ9-Wb-g9n" secondAttribute="leading" id="a0U-h0-Sjv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sZ9-Wb-g9n"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="u0d-WK-vMP" id="tvC-xl-iwi"/>
                         <outlet property="docImage" destination="6JN-Bs-Ums" id="sSw-7t-kVf"/>
                     </connections>
                 </viewController>
@@ -163,7 +169,7 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="q2H-aT-mxI">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="q2H-aT-mxI">
                                 <rect key="frame" x="177" y="323" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>

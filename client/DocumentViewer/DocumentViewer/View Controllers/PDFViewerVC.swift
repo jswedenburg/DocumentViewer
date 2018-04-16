@@ -20,6 +20,17 @@ class PDFViewerVC: UIViewController, WKNavigationDelegate {
         super.viewDidLoad()
         pdfWebView.navigationDelegate = self
         loadWebView()
+        setupUI()
+    }
+    
+    func setupUI() {
+        //NavBar
+        let navFont = UIFont(name: "Roboto-Regular", size: 24)!
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : navFont]
+        self.navigationController?.title = document?.name
+        
+        let rightItem = UIBarButtonItem(title: document?.size, style: .plain, target: nil, action: nil)
+        navigationItem.setRightBarButton(rightItem, animated: true) 
     }
     
     func loadWebView() {
@@ -30,9 +41,9 @@ class PDFViewerVC: UIViewController, WKNavigationDelegate {
         
     }
 
+    //MARK: Webview Delegate
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityIndicator.stopAnimating()
-        activityIndicator.isHidden = true
     }
 
 }

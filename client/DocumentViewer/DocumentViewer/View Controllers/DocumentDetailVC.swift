@@ -14,7 +14,28 @@ class DocumentDetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showDocContent()
+        setupUI()
         
+    }
+    
+    //MARK: Setup
+    func setupUI() {
+        let navFont = UIFont(name: "Roboto-Regular", size: 20)!
+        self.navigationController?.title = document?.name
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : navFont]
+        self.navigationController?.navigationBar.tintColor = UIColor.darkGray
+        
+        self.navigationItem.title = document?.name
+        
+        let barFont = UIFont(name: "Roboto-Regular", size: 18)!
+        let rightItem = UIBarButtonItem(title: document?.size, style: .plain, target: nil, action: nil)
+        rightItem.setTitleTextAttributes([NSAttributedStringKey.font : barFont], for: .normal)
+        self.navigationItem.rightBarButtonItem = rightItem
+        
+    }
+    
+    func showDocContent() {
         switch document!.type {
         case .image:
             let imageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "imageVC") as! ImageViewerVC
@@ -24,11 +45,10 @@ class DocumentDetailVC: UIViewController {
             let pdfVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "pdfVC") as! PDFViewerVC
             pdfVC.document = document
             add(asChildViewController: pdfVC)
-            
         }
-        
     }
     
+    //MARK: Helper
     private func add(asChildViewController child: UIViewController) {
         addChildViewController(child)
         view.addSubview(child.view)
