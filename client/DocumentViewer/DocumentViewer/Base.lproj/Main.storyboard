@@ -25,7 +25,7 @@
         <!--Documents-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DocumentListVC" customModule="DocumentViewer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="docListVC" id="BYZ-38-t0r" customClass="DocumentListVC" customModule="DocumentViewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,11 +83,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SVf-3X-teE">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YSW-cG-V3y" secondAttribute="bottom" id="5Ir-Uo-0MH"/>
+                            <constraint firstItem="SVf-3X-teE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NU4-UU-KJX"/>
                             <constraint firstItem="YSW-cG-V3y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rd4-S3-moL"/>
+                            <constraint firstItem="SVf-3X-teE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fEi-S7-f02"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YSW-cG-V3y" secondAttribute="trailing" id="wM1-eK-8jq"/>
                             <constraint firstItem="YSW-cG-V3y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="xjR-Bb-fVE"/>
                         </constraints>
@@ -95,7 +100,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Documents" id="OUE-m2-UxN"/>
                     <connections>
-                        <outlet property="docTableView" destination="YSW-cG-V3y" id="fMY-Jw-NAi"/>
+                        <outlet property="activityIndicator" destination="SVf-3X-teE" id="22Z-3Q-S4F"/>
+                        <outlet property="tableView" destination="YSW-cG-V3y" id="fMY-Jw-NAi"/>
                         <segue destination="6jy-O8-ku0" kind="show" identifier="segueToDetail" id="Ui6-od-92s"/>
                     </connections>
                 </viewController>

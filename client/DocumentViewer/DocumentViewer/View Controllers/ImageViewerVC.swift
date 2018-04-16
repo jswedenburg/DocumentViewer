@@ -18,7 +18,6 @@ class ImageViewerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         downloadImage()
-        
     }
     
     func downloadImage() {

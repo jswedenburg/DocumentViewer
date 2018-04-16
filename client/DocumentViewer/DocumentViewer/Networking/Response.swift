@@ -1,15 +1,16 @@
 //
-//  Networking.swift
+//  Response.swift
 //  DocumentViewer
 //
-//  Created by Jake Swedenburg on 4/15/18.
+//  Created by Jake Swedenburg on 4/16/18.
 //  Copyright © 2018 Jake Swedenburg. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-
+enum NetworkErrors:Error {
+    case noData
+}
 
 public enum Response {
     case data(_:Data)
@@ -28,10 +29,4 @@ public enum Response {
         
         self = .data(data)
     }
-}
-
-public enum NetworkErrors: Error {
-    case noData
-    case serverError
-    case parseError
 }

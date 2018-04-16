@@ -10,26 +10,32 @@ import UIKit
 
 class DocumentListVC: UIViewController {
 
-    @IBOutlet weak var docTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var documents:[Document] = []
     var filteredDocuments:[Document] = []
+    var searchController = UISearchController()
     let cellId:String = "documentCell"
     let detailSegueId:String = "segueToDetail"
-    var searchController = UISearchController()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDocuments()
+        
+        fetchDocuments()
         setUpTableview()
         setupUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+        
         if segue.identifier == detailSegueId {
             let vc = segue.destination as? DocumentDetailVC
-            let index = docTableView.indexPathForSelectedRow?.row ?? 0
+            let index = tableView.indexPathForSelectedRow?.row ?? 0
             let selectedDoc = isFiltering() ? filteredDocuments[index] : documents[index]
             vc?.document = selectedDoc
         }
@@ -40,8 +46,6 @@ class DocumentListVC: UIViewController {
         //NavBar
         let navFont = UIFont(name: "Roboto-Regular", size: 24)!
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : navFont]
-        
-        
         
         //SearchBar
         searchController = UISearchController(searchResultsController: nil)
@@ -54,16 +58,19 @@ class DocumentListVC: UIViewController {
     }
     
     func setUpTableview() {
-        docTableView.delegate = self
-        docTableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-    func getDocuments() {
-        Document.getAllDocuments { (error, docs) in
+    func fetchDocuments() {
+        activityIndicator.startAnimating()
+        let manager = NetworkManager(session: URLSession(configuration: .default))
+        manager.fetchAllDocuments { (error, docs) in
             if let docs = docs {
                 DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
                     self.documents = docs
-                    self.docTableView.reloadData()
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -77,7 +84,7 @@ extension DocumentListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = docTableView.dequeueReusableCell(withIdentifier: cellId) as? DocumentTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DocumentTableViewCell else { return UITableViewCell() }
         let doc = isFiltering() ? filteredDocuments[indexPath.row] : documents[indexPath.row]
         cell.updateWith(doc: doc)
         return cell
@@ -95,7 +102,7 @@ extension DocumentListVC: UISearchResultsUpdating {
         filteredDocuments = documents.filter({ (doc) -> Bool in
             return doc.name.lowercased().contains(searchText.lowercased())
         })
-        docTableView.reloadData()
+        tableView.reloadData()
     }
     
     func isFiltering() -> Bool {

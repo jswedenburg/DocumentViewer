@@ -23,6 +23,7 @@ class PDFViewerVC: UIViewController, WKNavigationDelegate {
         setupUI()
     }
     
+    //MARK: Setup
     func setupUI() {
         //NavBar
         let navFont = UIFont(name: "Roboto-Regular", size: 24)!
@@ -30,7 +31,7 @@ class PDFViewerVC: UIViewController, WKNavigationDelegate {
         self.navigationController?.title = document?.name
         
         let rightItem = UIBarButtonItem(title: document?.size, style: .plain, target: nil, action: nil)
-        navigationItem.setRightBarButton(rightItem, animated: true) 
+        navigationItem.setRightBarButton(rightItem, animated: true)
     }
     
     func loadWebView() {

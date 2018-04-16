@@ -11,6 +11,7 @@
 		233806CB208414CF003A0F2F /* PDFViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233806CA208414CF003A0F2F /* PDFViewerVC.swift */; };
 		233806CD20841F79003A0F2F /* DocumentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233806CC20841F79003A0F2F /* DocumentDetailVC.swift */; };
 		233806CF208442B3003A0F2F /* ImageViewerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233806CE208442B3003A0F2F /* ImageViewerVC.swift */; };
+		233806D42084F3A0003A0F2F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233806D32084F3A0003A0F2F /* Response.swift */; };
 		235327812083C9BB00A46C6A /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 235327802083C9BB00A46C6A /* Roboto-Regular.ttf */; };
 		235327852083DB5A00A46C6A /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 235327842083DB5A00A46C6A /* Roboto-Light.ttf */; };
 		235327872083DB6600A46C6A /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 235327862083DB6600A46C6A /* Roboto-Medium.ttf */; };
@@ -23,7 +24,7 @@
 		23681AF42082727B00B8BB59 /* DocumentViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23681AF32082727B00B8BB59 /* DocumentViewerTests.swift */; };
 		23681AFF2082727B00B8BB59 /* DocumentViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23681AFE2082727B00B8BB59 /* DocumentViewerUITests.swift */; };
 		23681B0D208274ED00B8BB59 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23681B0C208274ED00B8BB59 /* Document.swift */; };
-		23681B0F2083B7B100B8BB59 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23681B0E2083B7B100B8BB59 /* Networking.swift */; };
+		23681B0F2083B7B100B8BB59 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23681B0E2083B7B100B8BB59 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		233806CA208414CF003A0F2F /* PDFViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerVC.swift; sourceTree = "<group>"; };
 		233806CC20841F79003A0F2F /* DocumentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentDetailVC.swift; sourceTree = "<group>"; };
 		233806CE208442B3003A0F2F /* ImageViewerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerVC.swift; sourceTree = "<group>"; };
+		233806D32084F3A0003A0F2F /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		235327802083C9BB00A46C6A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		235327842083DB5A00A46C6A /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		235327862083DB6600A46C6A /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -66,7 +68,7 @@
 		23681AFE2082727B00B8BB59 /* DocumentViewerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewerUITests.swift; sourceTree = "<group>"; };
 		23681B002082727B00B8BB59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		23681B0C208274ED00B8BB59 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		23681B0E2083B7B100B8BB59 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		23681B0E2083B7B100B8BB59 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,15 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		233806D52084F4CF003A0F2F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				23681B0E2083B7B100B8BB59 /* NetworkManager.swift */,
+				233806D32084F3A0003A0F2F /* Response.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		2353277F2083C94000A46C6A /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,15 +150,15 @@
 		23681ADD2082727A00B8BB59 /* DocumentViewer */ = {
 			isa = PBXGroup;
 			children = (
-				23681ADE2082727A00B8BB59 /* AppDelegate.swift */,
-				23681B0E2083B7B100B8BB59 /* Networking.swift */,
-				23681B0C208274ED00B8BB59 /* Document.swift */,
 				23681AE22082727A00B8BB59 /* Main.storyboard */,
+				23681AE72082727B00B8BB59 /* LaunchScreen.storyboard */,
+				23681B0C208274ED00B8BB59 /* Document.swift */,
 				2353278B2083DD7000A46C6A /* DocumentTableViewCell.swift */,
-				23681AE52082727B00B8BB59 /* Assets.xcassets */,
+				233806D52084F4CF003A0F2F /* Networking */,
 				233806D0208442BF003A0F2F /* View Controllers */,
 				2353277F2083C94000A46C6A /* Fonts */,
-				23681AE72082727B00B8BB59 /* LaunchScreen.storyboard */,
+				23681ADE2082727A00B8BB59 /* AppDelegate.swift */,
+				23681AE52082727B00B8BB59 /* Assets.xcassets */,
 				23681AEA2082727B00B8BB59 /* Info.plist */,
 			);
 			path = DocumentViewer;
@@ -310,10 +321,11 @@
 				2353278C2083DD7000A46C6A /* DocumentTableViewCell.swift in Sources */,
 				233806CD20841F79003A0F2F /* DocumentDetailVC.swift in Sources */,
 				23681ADF2082727A00B8BB59 /* AppDelegate.swift in Sources */,
+				233806D42084F3A0003A0F2F /* Response.swift in Sources */,
 				233806CF208442B3003A0F2F /* ImageViewerVC.swift in Sources */,
 				233806CB208414CF003A0F2F /* PDFViewerVC.swift in Sources */,
 				23681B0D208274ED00B8BB59 /* Document.swift in Sources */,
-				23681B0F2083B7B100B8BB59 /* Networking.swift in Sources */,
+				23681B0F2083B7B100B8BB59 /* NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
