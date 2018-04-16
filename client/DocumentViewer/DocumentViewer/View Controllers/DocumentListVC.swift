@@ -14,6 +14,7 @@ class DocumentListVC: UIViewController {
     
     var documents:[Document] = []
     let cellId:String = "documentCell"
+    let detailSegueId:String = "segueToDetail"
     
     
     override func viewDidLoad() {
@@ -21,6 +22,14 @@ class DocumentListVC: UIViewController {
         getDocuments()
         setUpTableview()
         setupUI()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == detailSegueId {
+            let vc = segue.destination as? DocumentDetailVC
+            let selectedDoc = documents[docTableView.indexPathForSelectedRow!.row]
+            vc?.document = selectedDoc
+        }
     }
     
     func setupUI() {
@@ -45,6 +54,7 @@ class DocumentListVC: UIViewController {
             }
         }
     }
+
 }
 
 extension DocumentListVC: UITableViewDelegate, UITableViewDataSource {
@@ -57,6 +67,11 @@ extension DocumentListVC: UITableViewDelegate, UITableViewDataSource {
         let doc = documents[indexPath.row]
         cell.updateWith(doc: doc)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: detailSegueId, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
