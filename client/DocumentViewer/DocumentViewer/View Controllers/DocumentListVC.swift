@@ -9,7 +9,7 @@
 import UIKit
 
 class DocumentListVC: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -65,9 +65,9 @@ class DocumentListVC: UIViewController {
     func fetchDocuments() {
         activityIndicator.startAnimating()
         Document.getAllDocs { (error, docs) in
-            if error == nil {
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                if error == nil {
                     self.documents = docs!
                     self.tableView.reloadData()
                 }

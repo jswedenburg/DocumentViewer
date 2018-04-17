@@ -44,9 +44,11 @@ struct Document: Decodable {
                 return
             }
             
+            guard let data = jsonData else { completion(nil, nil)
+                return }
             let decoder = JSONDecoder()
             do {
-                let docList = try decoder.decode(DocumentList.self, from: jsonData!)
+                let docList = try decoder.decode(DocumentList.self, from: data)
                 completion(nil, docList.documents)
             } catch {
                 completion(error, nil)

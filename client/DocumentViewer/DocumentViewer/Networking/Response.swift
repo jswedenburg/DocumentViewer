@@ -10,6 +10,7 @@ import UIKit
 
 enum NetworkErrors:Error {
     case noData
+    case badUrl
 }
 
 public enum Response {
@@ -17,6 +18,10 @@ public enum Response {
     case error(_:Int?, _:Error?)
     
     init(_ response: (r: HTTPURLResponse?, data: Data?, error: Error?)) {
+        if response.r?.statusCode == 404 {
+            self = .error(response.r?.statusCode, NetworkErrors.badUrl)
+            return
+        }
         guard response.r?.statusCode == 200, response.error == nil else {
             self = .error(response.r?.statusCode, response.error)
             return

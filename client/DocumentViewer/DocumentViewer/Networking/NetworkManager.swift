@@ -20,9 +20,9 @@ class NetworkManager {
     }
     
     func dataRequestForUrl(url: String, completion: @escaping RequestClosure) {
-        let url = URL(string: "http://localhost:3000/api/documents")!
+        let requestUrl = URL(string: url)!
         
-        session.dataTask(with: url) { (data, response, error) in
+        session.dataTask(with: requestUrl) { (data, response, error) in
             let parsedResponse = Response((r: response as? HTTPURLResponse, data: data, error: error))
 
             switch parsedResponse {
