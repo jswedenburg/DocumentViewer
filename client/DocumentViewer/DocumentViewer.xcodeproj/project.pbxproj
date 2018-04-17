@@ -26,6 +26,7 @@
 		237B06502085B9DD0037393F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237B064F2085B9DD0037393F /* Roboto-Medium.ttf */; };
 		237B06522085B9E60037393F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237B06512085B9E60037393F /* Roboto-Light.ttf */; };
 		237B06562085C60F0037393F /* docs.json in Resources */ = {isa = PBXBuildFile; fileRef = 237B06552085C60F0037393F /* docs.json */; };
+		237B06B9208657060037393F /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237B06B52086568D0037393F /* PKHUD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = 23681ADA2082727900B8BB59;
 			remoteInfo = DocumentViewer;
+		};
+		237B06B22086568D0037393F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 237B06AC2086568D0037393F /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F99631FC19514FAC001F73CA;
+			remoteInfo = "PKHUD Demo";
+		};
+		237B06B42086568D0037393F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 237B06AC2086568D0037393F /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F996321E19514FD8001F73CA;
+			remoteInfo = PKHUD;
+		};
+		237B06B62086568D0037393F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 237B06AC2086568D0037393F /* PKHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 12CE19F11E25784C0062D873;
+			remoteInfo = PKHUDDemoUITests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -71,6 +93,7 @@
 		237B064F2085B9DD0037393F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		237B06512085B9E60037393F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		237B06552085C60F0037393F /* docs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = docs.json; sourceTree = "<group>"; };
+		237B06AC2086568D0037393F /* PKHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PKHUD.xcodeproj; path = Frameworks/PKHUD/PKHUD.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237B06B9208657060037393F /* PKHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,10 +155,12 @@
 		23681AD22082727900B8BB59 = {
 			isa = PBXGroup;
 			children = (
+				237B06AC2086568D0037393F /* PKHUD.xcodeproj */,
 				23681ADD2082727A00B8BB59 /* DocumentViewer */,
 				23681AF22082727B00B8BB59 /* DocumentViewerTests */,
 				23681AFD2082727B00B8BB59 /* DocumentViewerUITests */,
 				23681ADC2082727A00B8BB59 /* Products */,
+				237B06B8208657060037393F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +209,23 @@
 				23681B002082727B00B8BB59 /* Info.plist */,
 			);
 			path = DocumentViewerUITests;
+			sourceTree = "<group>";
+		};
+		237B06AD2086568D0037393F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				237B06B32086568D0037393F /* PKHUD Demo.app */,
+				237B06B52086568D0037393F /* PKHUD.framework */,
+				237B06B72086568D0037393F /* PKHUDDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		237B06B8208657060037393F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +318,12 @@
 			mainGroup = 23681AD22082727900B8BB59;
 			productRefGroup = 23681ADC2082727A00B8BB59 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 237B06AD2086568D0037393F /* Products */;
+					ProjectRef = 237B06AC2086568D0037393F /* PKHUD.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				23681ADA2082727900B8BB59 /* DocumentViewer */,
@@ -283,6 +332,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		237B06B32086568D0037393F /* PKHUD Demo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "PKHUD Demo.app";
+			remoteRef = 237B06B22086568D0037393F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		237B06B52086568D0037393F /* PKHUD.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PKHUD.framework;
+			remoteRef = 237B06B42086568D0037393F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		237B06B72086568D0037393F /* PKHUDDemoUITests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = PKHUDDemoUITests.xctest;
+			remoteRef = 237B06B62086568D0037393F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		23681AD92082727900B8BB59 /* Resources */ = {

@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import PKHUD
 
 class PDFViewerVC: UIViewController, WKNavigationDelegate {
 
@@ -36,6 +37,7 @@ class PDFViewerVC: UIViewController, WKNavigationDelegate {
         activityIndicator.stopAnimating()
     }
     
-    
-
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        HUD.flash(HUDContentType.error)
+    }
 }

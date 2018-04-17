@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class DocumentListVC: UIViewController {
     
@@ -68,6 +69,8 @@ class DocumentListVC: UIViewController {
                 if let docs = docs {
                     self.documents = docs
                     self.tableView.reloadData()
+                } else {
+                    HUD.flash(HUDContentType.error)
                 }
             }
         }

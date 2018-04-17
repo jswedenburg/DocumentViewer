@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class ImageViewerVC: UIViewController {
     
@@ -30,6 +31,8 @@ class ImageViewerVC: UIViewController {
                 self.activityIndicator.stopAnimating()
                 if let data = data {
                     self.docImage.image = UIImage(data: data)
+                } else {
+                    HUD.flash(HUDContentType.error)
                 }
             }
             }.resume()
