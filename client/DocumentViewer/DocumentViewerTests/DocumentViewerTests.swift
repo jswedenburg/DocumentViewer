@@ -39,21 +39,16 @@ class DocumentViewerTests: XCTestCase {
     }
     
     func testDocumentsAPICallToServer() {
-        let url = URL(string: "http://localhost:3000/api/documents")!
-        
         let promise = expectation(description: "response recieved")
-        
-        testSession.dataTask(with: url) { (data, response, error) in
-            let parsedResponse = Response((r: response as? HTTPURLResponse, data: data, error: error))
-            switch parsedResponse {
-            case .data(_):
+        let manager = NetworkManager(session: testSession)
+        manager.dataRequestForUrl(url: "http://localhost:3000/api/documents") { (error, data) in
+            if error == nil {
                 promise.fulfill()
-            case .error(let code, let error):
-                XCTFail("Failed with status code: \(String(describing: code)) and error: \(String(describing: error))")
+            } else {
+                XCTFail("api call failed)")
                 promise.fulfill()
             }
-        }.resume()
-        
+        }
         waitForExpectations(timeout: 5, handler: nil)
     }
     

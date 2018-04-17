@@ -102,9 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				23681AE02082727A00B8BB59 /* DocumentListVC.swift */,
+				233806CC20841F79003A0F2F /* DocumentDetailVC.swift */,
 				233806CA208414CF003A0F2F /* PDFViewerVC.swift */,
 				233806CE208442B3003A0F2F /* ImageViewerVC.swift */,
-				233806CC20841F79003A0F2F /* DocumentDetailVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

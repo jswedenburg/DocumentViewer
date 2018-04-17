@@ -39,13 +39,10 @@ struct Document: Decodable {
         let url = "http://localhost:3000/api/documents"
         let manager = NetworkManager(session: URLSession(configuration: .default))
         manager.dataRequestForUrl(url: url) { (error, jsonData) in
-            if error != nil {
+            guard let data = jsonData else {
                 completion(error, nil)
-                return
-            }
-            
-            guard let data = jsonData else { completion(nil, nil)
                 return }
+            
             let decoder = JSONDecoder()
             do {
                 let docList = try decoder.decode(DocumentList.self, from: data)

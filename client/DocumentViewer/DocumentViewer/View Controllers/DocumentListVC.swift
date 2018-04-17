@@ -65,8 +65,8 @@ class DocumentListVC: UIViewController {
         Document.getAllDocs { (error, docs) in
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
-                if error == nil {
-                    self.documents = docs!
+                if let docs = docs {
+                    self.documents = docs
                     self.tableView.reloadData()
                 }
             }
@@ -105,7 +105,5 @@ extension DocumentListVC: UISearchResultsUpdating {
     func isSearching() -> Bool {
         return searchController.isActive && !searchController.searchBar.text!.isEmpty
     }
-    
-    
 }
 
