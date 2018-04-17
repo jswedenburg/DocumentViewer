@@ -22,9 +22,7 @@ class DocumentListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fetchDocuments()
-        setUpTableview()
         setupUI()
     }
     
@@ -36,13 +34,14 @@ class DocumentListVC: UIViewController {
         if segue.identifier == detailSegueId {
             let vc = segue.destination as? DocumentDetailVC
             let index = tableView.indexPathForSelectedRow?.row ?? 0
-            let selectedDoc = isFiltering() ? filteredDocuments[index] : documents[index]
+            let selectedDoc = isSearching() ? filteredDocuments[index] : documents[index]
             vc?.document = selectedDoc
         }
     }
     
     //MARK: Setup
     func setupUI() {
+        
         //NavBar
         let navFont = UIFont(name: "Roboto-Regular", size: 20)!
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : navFont, NSAttributedStringKey.foregroundColor: UIColor.documentDarkGray()]
@@ -55,11 +54,10 @@ class DocumentListVC: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         
-    }
-    
-    func setUpTableview() {
+        //Tableview
         tableView.delegate = self
         tableView.dataSource = self
+        
     }
     
     func fetchDocuments() {
@@ -77,13 +75,14 @@ class DocumentListVC: UIViewController {
 }
 
 extension DocumentListVC: UITableViewDelegate, UITableViewDataSource {
+    //Uses isSearching function to determine data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isFiltering() ? filteredDocuments.count : documents.count
+        return isSearching() ? filteredDocuments.count : documents.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DocumentTableViewCell else { return UITableViewCell() }
-        let doc = isFiltering() ? filteredDocuments[indexPath.row] : documents[indexPath.row]
+        let doc = isSearching() ? filteredDocuments[indexPath.row] : documents[indexPath.row]
         cell.updateWith(doc: doc)
         return cell
     }
@@ -103,7 +102,7 @@ extension DocumentListVC: UISearchResultsUpdating {
         tableView.reloadData()
     }
     
-    func isFiltering() -> Bool {
+    func isSearching() -> Bool {
         return searchController.isActive && !searchController.searchBar.text!.isEmpty
     }
     

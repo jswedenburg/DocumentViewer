@@ -35,5 +35,7 @@ class PDFViewerVC: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         activityIndicator.stopAnimating()
     }
+    
+    
 
 }

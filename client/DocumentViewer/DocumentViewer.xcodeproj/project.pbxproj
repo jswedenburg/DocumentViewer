@@ -151,11 +151,11 @@
 		23681ADD2082727A00B8BB59 /* DocumentViewer */ = {
 			isa = PBXGroup;
 			children = (
-				237B06432085B66A0037393F /* Extensions.swift */,
 				23681AE22082727A00B8BB59 /* Main.storyboard */,
 				23681AE72082727B00B8BB59 /* LaunchScreen.storyboard */,
 				23681B0C208274ED00B8BB59 /* Document.swift */,
 				2353278B2083DD7000A46C6A /* DocumentTableViewCell.swift */,
+				237B06432085B66A0037393F /* Extensions.swift */,
 				233806D52084F4CF003A0F2F /* Networking */,
 				233806D0208442BF003A0F2F /* View Controllers */,
 				2353277F2083C94000A46C6A /* Fonts */,

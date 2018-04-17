@@ -9,13 +9,6 @@
 import Foundation
 import UIKit
 
-extension UIImageView {
-    func tintImageTo(color: UIColor) {
-        self.image = self.image?.withRenderingMode(.alwaysTemplate)
-        self.tintColor = color
-    }
-}
-
 extension UIColor {
     
     convenience init(hexString:String) {

@@ -54,7 +54,7 @@ class DocumentViewerTests: XCTestCase {
             }
         }.resume()
         
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
     }
     
 }
