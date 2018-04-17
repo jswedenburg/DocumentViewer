@@ -1,0 +1,3 @@
+[submodule "client/DocumentViewer/Frameworks/PKHUD"]
+	path = client/DocumentViewer/Frameworks/PKHUD
+	url = https://github.com/pkluz/PKHUD.git
