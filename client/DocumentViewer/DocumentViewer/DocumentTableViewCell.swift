@@ -18,6 +18,7 @@ class DocumentTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    
     func updateWith(doc: Document) {
         lblName.text = doc.name
         lblFileSize.text = doc.size

@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias DocumentClosure = (Error?, [Document]?) -> Void
+
 enum DocumentType: String, Decodable {
     case pdf
     case image
@@ -31,5 +33,26 @@ struct Document: Decodable {
         case type = "type"
         case size = "size"
         case url = "self"
+    }
+    
+    static func getAllDocs(completion: @escaping DocumentClosure) {
+        let url = "http://localhost:3000/api/documents"
+        let manager = NetworkManager(session: URLSession(configuration: .default))
+        manager.dataRequestForUrl(url: url) { (error, jsonData) in
+            if error != nil {
+                completion(error, nil)
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let docList = try decoder.decode(DocumentList.self, from: jsonData!)
+                completion(nil, docList.documents)
+            } catch {
+                completion(error, nil)
+                print("Error parsing json: \(error)")
+            }
+        }
+        
     }
 }

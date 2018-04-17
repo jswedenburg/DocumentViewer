@@ -44,8 +44,8 @@ class DocumentListVC: UIViewController {
     //MARK: Setup
     func setupUI() {
         //NavBar
-        let navFont = UIFont(name: "Roboto-Regular", size: 24)!
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : navFont]
+        let navFont = UIFont(name: "Roboto-Regular", size: 20)!
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : navFont, NSAttributedStringKey.foregroundColor: UIColor.documentDarkGray()]
         
         //SearchBar
         searchController = UISearchController(searchResultsController: nil)
@@ -64,18 +64,16 @@ class DocumentListVC: UIViewController {
     
     func fetchDocuments() {
         activityIndicator.startAnimating()
-        let manager = NetworkManager(session: URLSession(configuration: .default))
-        manager.fetchAllDocuments { (error, docs) in
-            if let docs = docs {
+        Document.getAllDocs { (error, docs) in
+            if error == nil {
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
-                    self.documents = docs
+                    self.documents = docs!
                     self.tableView.reloadData()
                 }
             }
         }
     }
-
 }
 
 extension DocumentListVC: UITableViewDelegate, UITableViewDataSource {

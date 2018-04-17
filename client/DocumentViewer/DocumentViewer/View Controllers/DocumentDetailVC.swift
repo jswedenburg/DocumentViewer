@@ -23,8 +23,8 @@ class DocumentDetailVC: UIViewController {
     func setupUI() {
         let navFont = UIFont(name: "Roboto-Regular", size: 20)!
         self.navigationController?.title = document?.name
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : navFont]
-        self.navigationController?.navigationBar.tintColor = UIColor.darkGray
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font : navFont, NSAttributedStringKey.foregroundColor: UIColor.documentDarkGray()]
+        self.navigationController?.navigationBar.tintColor = UIColor.documentDarkGray()
         
         self.navigationItem.title = document?.name
         
