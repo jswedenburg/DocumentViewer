@@ -25,6 +25,7 @@
 		237B064E2085B9890037393F /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237B064D2085B9890037393F /* Roboto-Regular.ttf */; };
 		237B06502085B9DD0037393F /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237B064F2085B9DD0037393F /* Roboto-Medium.ttf */; };
 		237B06522085B9E60037393F /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 237B06512085B9E60037393F /* Roboto-Light.ttf */; };
+		237B06562085C60F0037393F /* docs.json in Resources */ = {isa = PBXBuildFile; fileRef = 237B06552085C60F0037393F /* docs.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		237B064D2085B9890037393F /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		237B064F2085B9DD0037393F /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		237B06512085B9E60037393F /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		237B06552085C60F0037393F /* docs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = docs.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 		23681AF22082727B00B8BB59 /* DocumentViewerTests */ = {
 			isa = PBXGroup;
 			children = (
+				237B06552085C60F0037393F /* docs.json */,
 				23681AF32082727B00B8BB59 /* DocumentViewerTests.swift */,
 				23681AF52082727B00B8BB59 /* Info.plist */,
 			);
@@ -299,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237B06562085C60F0037393F /* docs.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
